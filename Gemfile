@@ -6,7 +6,7 @@ ruby "3.1.1"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -20,6 +20,7 @@ gem "devise"
 gem "devise-jwt"
 gem "jsonapi-serializer"
 
+gem "pg", "~> 1.2"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
