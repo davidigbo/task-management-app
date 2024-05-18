@@ -119,7 +119,7 @@ Give a start ⭐️ If you like this project...
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-Special thanks to TechProsNG for this opportunity
+Special thanks to Niyo Group for this opportunity
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -133,7 +133,7 @@ This project is [MIT](./LICENSE) licensed.
 
 ## 📝 Api Documentation <a name="api"></a>
 
-Now the server is running you can start to query the endpoints in the API.
+Now the server is running you can start to query the API endpoints.
 
 
 To Sign up a user , send a POST request to the following endpoint;
