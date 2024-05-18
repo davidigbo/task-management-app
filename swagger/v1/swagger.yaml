@@ -4,9 +4,114 @@ info:
   title: API V1
   version: v1
 paths:
-  api/v1/tasks:
+  "/login":
     post:
-      summary: creates a task
+      summary: Login
+      tags:
+      - Login
+      parameters: []
+      responses:
+        '200':
+          description: login successful
+        '401':
+          description: login failed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/signup":
+    post:
+      summary: Signup
+      tags:
+      - Signup
+      parameters: []
+      responses:
+        '201':
+          description: signup successful
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/logout":
+    post:
+      summary: Logout
+      tags:
+      - Logout
+      parameters: []
+      responses:
+        '200':
+          description: logout successful
+        '401':
+          description: logout failed
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/v1/tasks":
+    post:
+      summary: Creates a task
       tags:
       - Tasks
       parameters: []
@@ -43,7 +148,88 @@ paths:
               required:
               - title
               - description
+    get:
+      summary: Retrieves all tasks
+      tags:
+      - Tasks
+      responses:
+        '200':
+          description: tasks found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    status:
+                      type: string
+                  required:
+                  - id
+                  - name
+                  - status
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    status:
+                      type: string
+                  required:
+                  - id
+                  - name
+                  - status
   "/api/v1/tasks/{id}":
+    patch:
+      summary: Updates a task
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: task updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+              required:
+              - title
+              - description
+          application/xml:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+              required:
+              - title
+              - description
     get:
       summary: Retrieves a task
       tags:
@@ -88,8 +274,23 @@ paths:
                 - status
         '404':
           description: task not found
+    delete:
+      summary: Deletes a task
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: task deleted
+        '404':
+          description: task not found
 servers:
-- url: https://http://localhost:3000/api/v1/tasks
+- url: https://{defaultHost}
   variables:
     defaultHost:
       default: www.example.com
