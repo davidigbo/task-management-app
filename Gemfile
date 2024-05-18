@@ -42,10 +42,11 @@ gem "rack-cors"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
-  gem "rspec-rails", "~> 5.0"
+  gem 'rspec-rails', '~> 5.0'
+  gem 'rswag-specs', '~> 2.4'
+  gem 'rswag-api', '~> 2.4'
+  gem 'rswag-ui', '~> 2.4'
 end
-
-gem "rswag"
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
