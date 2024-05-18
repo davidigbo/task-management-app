@@ -1,5 +1,3 @@
-# spec/integration/api_spec.rb
-
 require 'swagger_helper'
 
 RSpec.describe 'API', type: :request do
