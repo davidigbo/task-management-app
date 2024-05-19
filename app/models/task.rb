@@ -11,6 +11,6 @@ class Task < ApplicationRecord
   private
 
   def update_completed
-    self.completed = true if status == 'completed'
+    self.completed = (status == 'completed')
   end
 end

@@ -290,7 +290,7 @@ paths:
         '404':
           description: task not found
 servers:
-- url: https://{defaultHost}
+- url: https://localhost:3000/api/v1/tasks
   variables:
     defaultHost:
       default: www.example.com
