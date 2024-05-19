@@ -168,7 +168,6 @@ If you do this right , you will get a response of the created user
     }
 ```
 
-
 If you do this wrong , you will get an error message:
 ```json
     { 
@@ -202,7 +201,6 @@ We will get this as the response body
     }
 }
 ```
-
 
 To handle login , send a POST request to the following endpoint
 
