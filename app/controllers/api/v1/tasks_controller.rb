@@ -7,7 +7,7 @@ class Api::V1::TasksController < ApplicationController
     end
 
     def show 
-      render json:@task
+      render json: @task
     end
 
     def create 

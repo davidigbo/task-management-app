@@ -88,7 +88,7 @@ Follow these steps to install and configure the student_dashboard_api Rails App:
 
 ## 👥 Author <a name="authors"></a>
 
-👤 **Okpah Igbo**
+👤 **David Igbo**
 
 - GitHub: [@david30-maker](https://github.com/david30-maker)
 - Twitter: [@davidigbo1](https://twitter.com/davidigbo1)
@@ -257,9 +257,10 @@ To handle course api, send a POST request to the following endpoint
 and the body below
 ```json
  {
-    "course": {
-        "name": "Programming",
-        "description": "to build computer applications"
+    "task": {
+        "title": "Programming",
+        "description": "to build computer applications",
+        "status": ""
     }
 }
 ```
