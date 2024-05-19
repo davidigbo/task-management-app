@@ -60,8 +60,8 @@ Before you begin, ensure you have the following:
 
 ### Prerequisites
 
-- Ruby (version 3.2.2)
-- Ruby on Rails (version 7.0.8)
+- Ruby (version 3.1.1)
+- Ruby on Rails (version 7.1)
 - PostgreSQL 
 - Git
 - Postman
@@ -174,13 +174,6 @@ If you do this wrong , you will get an error message of the error
     { 
         "error": "User couldn't be created successfully" 
     }
-```
-
-## Get current user - using JWT token
-
-Now let us see how we will use this jwt token to get the current user .
-We will get this token from the response header after signing up and use it in the header of the GET request to the `http://localhost:3001/api/v1/users` endpoint to get the current user .
-
 
 After signing up;
 
@@ -251,7 +244,7 @@ If you do this wrong , you will get an error message of the error
     }
 ```
 
-To handle course api, send a POST request to the following endpoint
+To handle task api, send a POST request to the following endpoint
 
 ```http://localhost:3000/api/v1/tasks```
 and the body below
@@ -260,7 +253,8 @@ and the body below
     "task": {
         "title": "Programming",
         "description": "to build computer applications",
-        "status": ""
+        "status": "completed",
+        "completed": "true"
     }
 }
 ```
@@ -268,34 +262,18 @@ We get this as the response body
 
 ```json
     {
-    "id":2,"name":"Programming",
+    "id":2,
+    "title":"Programming",
     "description":"to build computer applications",
-    "created_at":"2023-11-03T08:13:16.530Z",
-    "updated_at":"2023-11-03T08:13:16.530Z"
+    "status": "completed",
+    "completed": "true",
+    "created_at":"2024-05-18T08:13:16.530Z",
+    "updated_at":"2024-05-018T08:13:16.530Z"
     }
 ```
-To handle enrollment api, send a POST request to the following endpoint
-
-```http://localhost:3001/api/v1/enrollments```
-and the body below
+If you do this wrong , you will get an error message of the error
 ```json
-{
-    "enrollment": {
-        "user_id": 3,
-        "course_id": 2
+    { 
+        "error": "Task was not created" 
     }
-}
 ```
-We get this as the response body
-
-```json
-    {
-    "id": 2,
-    "user_id": 3,
-    "course_id": 2,
-    "created_at": "2023-11-03T08:28:15.814Z",
-    "updated_at": "2023-11-03T08:28:15.814Z"
-}
-```
-
-We can now use this profile to get the current user by sending a GET request to `http://localhost:3001/api/v1/users` with this token in the Authorization header to get the current user. 
