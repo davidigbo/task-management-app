@@ -168,8 +168,7 @@ If you do this right , you will get a response of the created user
     }
 ```
 
-
-If you do this wrong , you will get an error message of the error
+If you do this wrong , you will get an error message:
 ```json
     { 
         "error": "User couldn't be created successfully" 
@@ -202,7 +201,6 @@ We will get this as the response body
     }
 }
 ```
-
 
 To handle login , send a POST request to the following endpoint
 
@@ -237,7 +235,7 @@ We get this as the response body
             "token": "eyJhbG*********************************************************nRVvhI"  
     }
 ```
-If you do this wrong , you will get an error message of the error
+If you do this wrong , you will get an error message:
 ```json
     { 
         "error": "Logged in was not successfully" 
@@ -271,7 +269,7 @@ We get this as the response body
     "updated_at":"2024-05-018T08:13:16.530Z"
     }
 ```
-If you do this wrong , you will get an error message of the error
+If you do this wrong , you will get an error message:
 ```json
     { 
         "error": "Task was not created" 
