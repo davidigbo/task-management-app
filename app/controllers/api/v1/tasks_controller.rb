@@ -14,7 +14,7 @@ class Api::V1::TasksController < ApplicationController
     def create 
       task = current_user.tasks.new(task_params)
       if task.save 
-        ActionCable.server.broadcast "task_channel", "Data created!"
+        ActionCable.server.broadcast "task_channel", task: task 
         render json: task, status: :created
       else
         render json: { errors: task.errors.full_messages }, status: :unprocessable_entity
