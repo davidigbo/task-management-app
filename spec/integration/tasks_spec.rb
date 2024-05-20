@@ -99,6 +99,30 @@ RSpec.describe 'API', type: :request do
     end
   end
 
+  get "Retrieves a task" do
+    tags "Tasks"
+    produces "application/json", "application/xml"
+    parameter name: :id, in: :path, type: :string
+
+    response "200", "task found" do
+      schema type: :object,
+             properties: {
+               id: { type: :integer },
+               name: { type: :string },
+               status: { type: :string }
+             },
+             required: ["id", "name", "status"]
+
+      let(:id) { Task.create(name: "Test Task", status: "pending").id }
+      run_test!
+    end
+
+    response "404", "task not found" do
+      let(:id) { "invalid" }
+      run_test!
+    end
+  end
+
   path "/api/v1/tasks" do
     post "Creates a task" do
       tags "Tasks"
@@ -143,30 +167,6 @@ RSpec.describe 'API', type: :request do
       response "200", "task updated" do
         let(:id) { Task.create(name: "Test Task", status: "pending").id }
         let(:task) { { title: "Learn to code", description: "Learn to code in Ruby" } }
-        run_test!
-      end
-    end
-
-    get "Retrieves a task" do
-      tags "Tasks"
-      produces "application/json", "application/xml"
-      parameter name: :id, in: :path, type: :string
-
-      response "200", "task found" do
-        schema type: :object,
-               properties: {
-                 id: { type: :integer },
-                 name: { type: :string },
-                 status: { type: :string }
-               },
-               required: ["id", "name", "status"]
-
-        let(:id) { Task.create(name: "Test Task", status: "pending").id }
-        run_test!
-      end
-
-      response "404", "task not found" do
-        let(:id) { "invalid" }
         run_test!
       end
     end
