@@ -1,6 +1,32 @@
 require 'swagger_helper'
 
 RSpec.describe 'API', type: :request do
+  path "/signup" do
+    post "Signup" do
+      tags "Signup"
+      consumes "application/json", "application/xml"
+      parameter name: :signup, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string },
+          name: { type: :string }
+        },
+        required: ["email", "password"]
+      }
+
+      response "201", "signup successful" do
+        let(:signup) { { email: "example@gmail.com", password: "password" } }
+        run_test!
+      end
+
+      response "422", "invalid request" do
+        let(:signup) { { email: "example", password: "password" } }
+        run_test!
+      end
+    end
+  end
+
   path "/login" do
     post "Login" do
       tags "Login"
@@ -21,31 +47,6 @@ RSpec.describe 'API', type: :request do
 
       response "401", "login failed" do
         let(:login) { { email: "example", password: "password" } }
-        run_test!
-      end
-    end
-  end
-
-  path "/signup" do
-    post "Signup" do
-      tags "Signup"
-      consumes "application/json", "application/xml"
-      parameter name: :signup, in: :body, schema: {
-        type: :object,
-        properties: {
-          email: { type: :string },
-          password: { type: :string }
-        },
-        required: ["email", "password"]
-      }
-
-      response "201", "signup successful" do
-        let(:signup) { { email: "example@gmail.com", password: "password" } }
-        run_test!
-      end
-
-      response "422", "invalid request" do
-        let(:signup) { { email: "example", password: "password" } }
         run_test!
       end
     end
@@ -85,7 +86,8 @@ RSpec.describe 'API', type: :request do
         properties: {
           title: { type: :string },
           description: { type: :string },
-          status: { type: :string }
+          status: { type: :string },
+          completed: { type: :boolean }
         },
         required: ["title", "description"]
       }
