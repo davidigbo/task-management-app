@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.1
 info:
-  title: Task_Managment_API
+  title: Task Manager API
   version: v1
 paths:
   "/signup":
@@ -26,7 +26,7 @@ paths:
                 password:
                   type: string
                 name:
-                  type: string  
+                  type: string
               required:
               - email
               - password
@@ -37,6 +37,8 @@ paths:
                 email:
                   type: string
                 password:
+                  type: string
+                name:
                   type: string
               required:
               - email
@@ -111,7 +113,49 @@ paths:
               required:
               - email
               - password
- 
+  "/api/v1/tasks":
+    post:
+      summary: Creates a task
+      tags:
+      - Tasks
+      parameters: []
+      responses:
+        '201':
+          description: task created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                completed:
+                  type: boolean
+              required:
+              - title
+              - description
+          application/xml:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                completed:
+                  type: boolean
+              required:
+              - title
+              - description
     get:
       summary: Retrieves all tasks
       tags:
@@ -153,18 +197,19 @@ paths:
                   - name
                   - status
   "/api/v1/tasks/{id}":
-
-   "/api/v1/tasks":
-    post:
-      summary: Creates a task
+    patch:
+      summary: Updates a task
       tags:
       - Tasks
-      parameters: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
-        '201':
-          description: task created
-        '422':
-          description: invalid request
+        '200':
+          description: task updated
       requestBody:
         content:
           application/json:
@@ -177,8 +222,6 @@ paths:
                   type: string
                 status:
                   type: string
-              completed:
-                type: boolean    
               required:
               - title
               - description
@@ -195,9 +238,7 @@ paths:
               required:
               - title
               - description
-              - status
-
-               get:
+    get:
       summary: Retrieves a task
       tags:
       - Tasks
@@ -241,50 +282,6 @@ paths:
                 - status
         '404':
           description: task not found
-
-    patch:
-      summary: Updates a task
-      tags:
-      - Tasks
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: task updated
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-              required:
-              - title
-              - description
-          application/xml:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-              required:
-              - title
-              - description
-              - status
-
     delete:
       summary: Deletes a task
       tags:
@@ -301,7 +298,7 @@ paths:
         '404':
           description: task not found
 servers:
-- url: https://localhost:3000/api/v1/tasks
+- url: https://localhost:3000
   variables:
     defaultHost:
       default: www.example.com
