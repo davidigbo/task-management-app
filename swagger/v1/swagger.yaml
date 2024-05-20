@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.1
 info:
-  title: Task_Managment_API
+  title: Task Manager API
   version: v1
 paths:
   "/signup":
@@ -26,7 +26,7 @@ paths:
                 password:
                   type: string
                 name:
-                  type: string  
+                  type: string
               required:
               - email
               - password
@@ -37,6 +37,8 @@ paths:
                 email:
                   type: string
                 password:
+                  type: string
+                name:
                   type: string
               required:
               - email
@@ -134,8 +136,8 @@ paths:
                   type: string
                 status:
                   type: string
-              completed:
-                type: boolean    
+                completed:
+                  type: boolean
               required:
               - title
               - description
@@ -149,6 +151,8 @@ paths:
                   type: string
                 status:
                   type: string
+                completed:
+                  type: boolean
               required:
               - title
               - description
@@ -294,7 +298,7 @@ paths:
         '404':
           description: task not found
 servers:
-- url: https://localhost:3000/api/v1/tasks
+- url: https://localhost:3000
   variables:
     defaultHost:
       default: www.example.com
