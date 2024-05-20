@@ -254,8 +254,7 @@ and the body below
     "task": {
         "title": "Relationships matter",
         "description": "It is an awesome book on relationship",
-        "status": "in_progress",
-        "completed": false
+        "status": "in_progress"
     }
 }
 ```
