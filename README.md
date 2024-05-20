@@ -86,6 +86,9 @@ Follow these steps to install and configure the student_dashboard_api Rails App:
 ## Start the Rails server:
 - rails server
 
+## Check Swagger for Restful API Documentation
+- http://localhost:3000/api-docs
+
 ## 👥 Author <a name="authors"></a>
 
 👤 **David Igbo**
@@ -247,27 +250,28 @@ To handle task api, send a POST request to the following endpoint
 ```http://localhost:3000/api/v1/tasks```
 and the body below
 ```json
- {
+{
     "task": {
-        "title": "Programming",
-        "description": "to build computer applications",
-        "status": "completed",
-        "completed": "true"
+        "title": "Relationships matter",
+        "description": "It is an awesome book on relationship",
+        "status": "in_progress",
+        "completed": false
     }
 }
 ```
 We get this as the response body
 
 ```json
-    {
-    "id":2,
-    "title":"Programming",
-    "description":"to build computer applications",
-    "status": "completed",
-    "completed": "true",
-    "created_at":"2024-05-18T08:13:16.530Z",
-    "updated_at":"2024-05-018T08:13:16.530Z"
-    }
+   {
+    "id": 17,
+    "title": "Relationships matter",
+    "description": "It is an awesome book on relationship",
+    "status": "in_progress",
+    "completed": false,
+    "user_id": 6,
+    "created_at": "2024-05-20T06:34:31.777Z",
+    "updated_at": "2024-05-20T06:34:31.777Z"
+}
 ```
 If you do this wrong , you will get an error message:
 ```json
