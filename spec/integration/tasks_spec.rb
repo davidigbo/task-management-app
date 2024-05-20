@@ -77,6 +77,28 @@ RSpec.describe 'API', type: :request do
     end
   end
 
+    get "Retrieves all tasks" do
+      tags "Tasks"
+      produces "application/json", "application/xml"
+
+      response "200", "tasks found" do
+        schema type: :array,
+               items: {
+                 type: :object,
+                 properties: {
+                   id: { type: :integer },
+                   name: { type: :string },
+                   status: { type: :string }
+                 },
+                 required: ["id", "name", "status"]
+               }
+
+        before { Task.create(name: "Test Task", status: "pending") }
+        run_test!
+      end
+    end
+  end
+
   path "/api/v1/tasks" do
     post "Creates a task" do
       tags "Tasks"
@@ -102,28 +124,6 @@ RSpec.describe 'API', type: :request do
         run_test!
       end
     end
-
-    get "Retrieves all tasks" do
-      tags "Tasks"
-      produces "application/json", "application/xml"
-
-      response "200", "tasks found" do
-        schema type: :array,
-               items: {
-                 type: :object,
-                 properties: {
-                   id: { type: :integer },
-                   name: { type: :string },
-                   status: { type: :string }
-                 },
-                 required: ["id", "name", "status"]
-               }
-
-        before { Task.create(name: "Test Task", status: "pending") }
-        run_test!
-      end
-    end
-  end
 
   path "/api/v1/tasks/{id}" do
     patch "Updates a task" do

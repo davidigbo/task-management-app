@@ -111,47 +111,7 @@ paths:
               required:
               - email
               - password
-  "/api/v1/tasks":
-    post:
-      summary: Creates a task
-      tags:
-      - Tasks
-      parameters: []
-      responses:
-        '201':
-          description: task created
-        '422':
-          description: invalid request
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-              completed:
-                type: boolean    
-              required:
-              - title
-              - description
-          application/xml:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-              required:
-              - title
-              - description
+ 
     get:
       summary: Retrieves all tasks
       tags:
@@ -193,19 +153,18 @@ paths:
                   - name
                   - status
   "/api/v1/tasks/{id}":
-    patch:
-      summary: Updates a task
+
+   "/api/v1/tasks":
+    post:
+      summary: Creates a task
       tags:
       - Tasks
-      parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+      parameters: []
       responses:
-        '200':
-          description: task updated
+        '201':
+          description: task created
+        '422':
+          description: invalid request
       requestBody:
         content:
           application/json:
@@ -218,6 +177,8 @@ paths:
                   type: string
                 status:
                   type: string
+              completed:
+                type: boolean    
               required:
               - title
               - description
@@ -234,7 +195,9 @@ paths:
               required:
               - title
               - description
-    get:
+              - status
+
+               get:
       summary: Retrieves a task
       tags:
       - Tasks
@@ -278,6 +241,50 @@ paths:
                 - status
         '404':
           description: task not found
+
+    patch:
+      summary: Updates a task
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: task updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+              required:
+              - title
+              - description
+          application/xml:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+              required:
+              - title
+              - description
+              - status
+
     delete:
       summary: Deletes a task
       tags:
