@@ -86,6 +86,9 @@ Follow these steps to install and configure the student_dashboard_api Rails App:
 ## Start the Rails server:
 - rails server
 
+## Check Swagger for Restful API Documentation
+- http://localhost:3000/api-docs
+
 ## 👥 Author <a name="authors"></a>
 
 👤 **David Igbo**
