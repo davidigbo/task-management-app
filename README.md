@@ -50,7 +50,6 @@ The task management API provides a RESTful interface for managing tasks within a
 - **[user authentication]**
 - **[api for student information]**
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
