@@ -103,7 +103,6 @@ Follow these steps to install and configure the student_dashboard_api Rails App:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
