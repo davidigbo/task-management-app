@@ -130,7 +130,6 @@ This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## 📝 Api Documentation <a name="api"></a>
 
 Now the server is running you can start to query the API endpoints.
