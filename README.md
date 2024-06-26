@@ -147,7 +147,6 @@ The body of the Json will be
     }
 }
 ```
-
 If you do this right , you will get a response of the created user
 ```json 
     {
