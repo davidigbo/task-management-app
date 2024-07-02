@@ -263,7 +263,7 @@ We get this as the response body
     "updated_at": "2024-05-20T06:34:31.777Z"
 }
 ```
-If you do this wrong , you will get an error message:
+If you do this wrong, you will get an error message:
 ```json
     { 
         "error": "Task was not created" 
