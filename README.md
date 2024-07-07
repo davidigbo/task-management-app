@@ -210,7 +210,6 @@ and the body below
     }
 }
 ```
-
 We get this as the response body
 
 ```json
