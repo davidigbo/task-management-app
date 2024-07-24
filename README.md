@@ -129,7 +129,7 @@ This project is [MIT](./LICENSE) licensed.
 
 Now the server is running you can start to query the API endpoints.
 
-To Sign up a user , send a POST request to the following endpoint;
+To Sign up a user, send a POST request to the following endpoint;
 
 `http://localhost:3000/signup`
 
