@@ -252,7 +252,7 @@ We get this as the response body
    {
     "id": 17,
     "title": "Relationships matter",
-    "description": "It is an awesome book on relationship",
+    "description": "It is an awesome book on relationships",
     "status": "in_progress",
     "completed": false,
     "user_id": 6,
@@ -260,6 +260,7 @@ We get this as the response body
     "updated_at": "2024-05-20T06:34:31.777Z"
 }
 ```
+
 If you do this wrong, you will get an error message:
 ```json
     { 
