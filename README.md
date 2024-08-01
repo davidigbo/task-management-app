@@ -23,7 +23,6 @@
   - [📝 License ](#-license-)
    - [📝 Api Documentation ](#-api-documentation-)
 
-<!-- PROJECT DESCRIPTION -->
 
 # 📖 [task-management-app] <a name="about-project"></a>
 
