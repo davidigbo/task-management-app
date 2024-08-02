@@ -23,7 +23,6 @@
   - [📝 License ](#-license-)
    - [📝 Api Documentation ](#-api-documentation-)
 
-
 # 📖 [task-management-app] <a name="about-project"></a>
 
 The task management API provides a RESTful interface for managing tasks within an application. Users can perform various operations on tasks, including creating, reading, updating, and deleting tasks. The API supports user authentication using JWT tokens to ensure secure access to task data. Tasks are stored in a database, and input data is validated to maintain data integrity and security. The API facilitates seamless integration with client applications, enabling users to efficiently organize and track their tasks.
