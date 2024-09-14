@@ -113,7 +113,7 @@ Give a start ⭐️ If you like this project...
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-Special thanks to Niyo Group for this opportunity
+Special thanks to Niyo Group for this opportunity...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
